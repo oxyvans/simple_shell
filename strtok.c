@@ -21,24 +21,15 @@ char* get_line()
     return(buffer);
 }
 
-
-char* mystrtok(char* s, char d)
-{
-	char* input = NULL, result;
-
-	if (s != NULL)
-        	input = s;
-	
-	if (input == NULL)
-        	return NULL;
-
-	result = malloc(sizeof(char) * (strlen(s) + 1));
-}
-
 int main()
 {
 	char *command = get_line();
-	mystrtok(command," ");
-
+	char *i = strtok(command, " ");
+	
+	while (i) 
+	{
+		printf("%s\n", i);
+		i = strtok(NULL, " ");
+	}
 	return (0);
 }

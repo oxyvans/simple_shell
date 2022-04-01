@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 char* g_line(__ssize_t *flag)
 {
@@ -25,19 +26,25 @@ char* g_line(__ssize_t *flag)
 int main()
 {
 	char *command;
-	char *i; 
+	char *i;
+        int id;
+	char *arr[2];
 	__ssize_t flag = 1;
 
 	command = g_line(&flag);
 	while (flag != -1)
 	{	
-		i = strtok(command," ");
-		while (i) 
+		i = strtok(command,"\n");
+		arr[0] = i;
+		arr[1] = NULL;
+		id = fork();
+		if (id != 0)
+			wait(NULL);
+		else
 		{
-			printf("%s\n",i);
-			i = strtok(NULL, " ");
+			execve(arr[0],arr,NULL);
 		}
-	command = g_line(&flag);
+		command = g_line(&flag);
 	}
 	return (0);
 }

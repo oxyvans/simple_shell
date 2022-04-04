@@ -7,8 +7,8 @@
 char *prompt()
 {
 char *buffer;
-size_t bufsize = 16;
-int l, status;
+size_t bufsize = 16, l;
+int status;
 	
 	buffer = (char *)malloc(bufsize * sizeof(char));
 	if (buffer == NULL)

@@ -13,7 +13,11 @@
 #include <signal.h>
 
 /*---shell-funcion---*/
-int main(__attribute__((unused)) int argc, char *argv[], char *env);
+int main();
+char *prompt();
+void _check(char *param);
+int exitshell();
+int env();
 
 /*---str-funcion---*/
 int _strlen(char *s);

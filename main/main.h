@@ -12,6 +12,11 @@
 #include <errno.h>
 #include <signal.h>
 
+/*---shell-funcion---*/
 int main(__attribute__((unused)) int argc, char *argv[], char *env);
+
+/*---str-funcion---*/
+int _strlen(char *s);
+int _strcmp(char *s1, char *s2);
 
 #endif

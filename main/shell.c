@@ -11,7 +11,7 @@
 int main()
 {
 	pid_t child;
-	char *command[16];
+	char *command[5];
 	char *tok, *lineptr = NULL;
 	size_t i;
 	int status;
@@ -50,5 +50,4 @@ int main()
 	free(tok);
 	free(command);
 	exit(status);
-	return (0);
  }

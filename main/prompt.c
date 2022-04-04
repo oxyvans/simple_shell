@@ -6,11 +6,11 @@
  */
 char *prompt()
 {
-char *buffer;
-size_t bufsize = 16, l;
-int status;
+	char *buffer;
+	size_t l = 1;
+	int status;
 	
-	buffer = (char *)malloc(bufsize * sizeof(char));
+	buffer = malloc(l * sizeof(char));
 	if (buffer == NULL)
 	{
 		perror("Unable to allocate buffer");

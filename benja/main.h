@@ -15,8 +15,8 @@ extern char **environ;
 #include <signal.h>
 
 /*---shell-funcion---*/
-int main();
-char *prompt();
+int main(int argc, char **argv, char **env);
+char *_getline();
 int _check(char *param);
 int exitshell();
 int env();

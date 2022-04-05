@@ -9,6 +9,7 @@ char *_getline()
 {
 	char *buffer = NULL;
 	size_t l = 0;
+	int status;
 
 	status = getline(&buffer, &l, stdin);
 

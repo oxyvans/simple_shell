@@ -18,7 +18,8 @@ char *prompt();
 int _check(char *param);
 int exitshell();
 int env();
-
+char *_getenv(char *str);
+char *findpath(char *str);
 /*---str-funcion---*/
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);

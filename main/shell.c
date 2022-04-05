@@ -36,6 +36,7 @@ int main()
 		}
 		if (flag != 3)
 		{
+			command[0] = findpath(command[0]);
 			child = fork();
 
 			if (child == 0)

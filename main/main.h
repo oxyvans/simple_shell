@@ -15,7 +15,7 @@
 /*---shell-funcion---*/
 int main();
 char *prompt();
-void _check(char *param);
+int _check(char *param);
 int exitshell();
 int env();
 

@@ -14,7 +14,7 @@ int main()
 	char *command[5];
 	char *tok, *lineptr = NULL;
 	size_t i;
-	int status;
+	int status, flag = 1;
 
 	while (1)
 	{
@@ -28,22 +28,29 @@ int main()
 		}
 
 		command[i] = NULL;
-		_check(command[0]);
-		child = fork();
-
-		if (child == 0)
+		flag = _check(command[0]);
+		if (flag == 0)
 		{
-			if (execve(command[0], command, NULL) == -1)
-			{
-				free(lineptr);
-				perror("execve");
-				exit(1);
-			}
+			free(lineptr);
+			exitshell();
 		}
+		if (flag != 3)
+		{
+			child = fork();
 
-		if (child > 0)
-			wait(&status);
+			if (child == 0)
+			{
+				if (execve(command[0], command, NULL) == -1)
+				{
+					free(lineptr);
+					perror("execve");
+					exit(1);
+				}
+			}
 
+			if (child > 0)
+				wait(&status);
+		}
 	}
 	putchar('\n');
 	free(lineptr);

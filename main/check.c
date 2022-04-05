@@ -5,18 +5,19 @@ extern char **environ;
  * @param: input from getline
  */
 
-void _check(char *param)
+int _check(char *param)
 {
+	int flag = 1;
 	if (_strcmp(param, "exit") == 0)
 	{
-		exitshell();
+		flag = 0;
 	}
 	else
 	if (_strcmp(param, "env") == 0)
 	{
-	       	env();
+	       	flag = env();
 	}
-
+return (flag);
 }
 
 /**
@@ -39,5 +40,5 @@ int env()
 	int i = 0;	
 	for (i = 0; environ[i] != NULL; i++)
 		printf("%s\n", environ[i]);
-	return (0);
+	return(3);
 }

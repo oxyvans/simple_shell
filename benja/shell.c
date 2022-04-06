@@ -25,7 +25,7 @@ int main(int argc, char **argv, char **env)
 		if (mod == 1)
 			printf("$ ");
 
-		signal(SIGINT, SIG_IGN);
+		signal(SIGINT, ignore_cc);
 
 		imput = _getline();
 

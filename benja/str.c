@@ -22,6 +22,27 @@ int _strlen(char *s)
 }
 
 /**
+ * aux_getenv - s1 its in s2
+ * @s1 : chars
+ * @s2 : chars
+ * Return: comp
+ */
+
+int aux_getenv(char *s1, char *s2)
+{
+	while (*s1 != '\0')
+	{
+		if (*s1 != *s2)
+			return (1);
+
+		s1++;
+		s2++;
+	}
+
+	return (0);
+}
+
+/**
  * _strcmp - comp two strings
  * @s1 : chars
  * @s2 : chars

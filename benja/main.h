@@ -21,9 +21,11 @@ int _check(char *param);
 int exitshell();
 int env();
 void ignore_cc(int n);
+char *_getenv(char **env);
 
 /*---str-funcion---*/
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+int aux_getenv(char *s1, char *s2);
 
 #endif

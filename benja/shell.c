@@ -13,10 +13,10 @@ int main(int argc, char **argv, char **env)
 	int status = 1, mod = 0, flag = 1, i = 0;
 	char *imput = NULL, *command[16], *tok = NULL;
 	pid_t child;
+	char *path = _getenv(env);
 
 	(void)argc;
 	(void)argv;
-	(void)env;
 
 	mod = isatty(STDIN_FILENO);
 

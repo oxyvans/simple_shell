@@ -15,15 +15,18 @@ extern char **environ;
 #include <signal.h>
 
 /*---shell-funcion---*/
-int main(int argc, char **argv, char **env);
+int main();
 char *_getline();
 int _check(char *param);
 int exitshell();
 int env();
 void ignore_cc(int n);
+char *_getenv(char **env);
+char **tokens(char *imput);
 
 /*---str-funcion---*/
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+int aux_getenv(char *s1, char *s2);
 
 #endif

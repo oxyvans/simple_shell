@@ -20,6 +20,7 @@ char *_getline();
 int _check(char *param);
 int exitshell();
 int env();
+void ignore_cc(int n);
 
 /*---str-funcion---*/
 int _strlen(char *s);

@@ -8,15 +8,15 @@
  * Return: always 0.
  */
 
-int main(int argc, char **argv, char **env)
+int main()
 {
-	int status = 1, mod = 0, flag = 1, i = 0;
-	char *imput = NULL, *command[16], *tok = NULL;
+	int status = 1, mod = 0, flag = 1;
+	char *imput = NULL, **command = NULL;
 	pid_t child;
-	char *path = _getenv(env);
-
-	(void)argc;
-	(void)argv;
+	char *path = _getenv(environ);
+	
+	/* mientras no lo uso */
+	printf("%s\n",path);
 
 	mod = isatty(STDIN_FILENO);
 
@@ -28,18 +28,11 @@ int main(int argc, char **argv, char **env)
 		signal(SIGINT, ignore_cc);
 
 		imput = _getline();
+		
+		command = tokens(imput);
 
 	/*-------------mejorar---------------*/
 	
-		tok = strtok(imput, " \t\n\r");
-
-		for (i = 0; i < 16 && tok != NULL; i++)
-		{
-			command[i] = tok;
-			tok = strtok(NULL, " \t\n\r");
-		}
-
-		command[i] = NULL;
 		flag = _check(command[0]);
 		
 		if (flag == 0)

@@ -22,6 +22,27 @@ int _strlen(char *s)
 }
 
 /**
+ * aux_getenv - s1 its in s2
+ * @s1 : chars
+ * @s2 : chars
+ * Return: comp
+ */
+
+int aux_getenv(char *s1, char *s2)
+{
+	while (*s1 != '\0')
+	{
+		if (*s1 != *s2)
+			return (1);
+
+		s1++;
+		s2++;
+	}
+
+	return (0);
+}
+
+/**
  * _strcmp - comp two strings
  * @s1 : chars
  * @s2 : chars
@@ -50,44 +71,4 @@ int _strcmp(char *s1, char *s2)
 	else
 		return (0);
 	}
-}
-
-/**
- * compare - man
- * @X : pointer
- * @Y : pointer
- * Return: int
- */
-int compare(const char *X, const char *Y)
-{
-while (*X && *Y)
-{
-if (*X != *Y)
-{
-return (0);
-}
-X++;
-Y++;
-}
-return (*Y == '\0');
-}
-
-
-/**
- * *strstr - searches string in other string 
- * @s1: string
- * @s2: string to be found;
- * Return: pointer to the beginning of substring
- */
-char *_strstr(char *s1, char *s2)
-{
-	if (s2[0] == '\0')
-		return (s1);
-	while (*s1 != '\0')
-	{
-		if (((*s1 == *s2) && compare(s1,s2)))
-		return (s1);
-		s1++;
-	}
-	return (NULL);
 }

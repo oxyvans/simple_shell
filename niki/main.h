@@ -1,6 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+extern char **environ;
+
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -13,16 +15,17 @@
 #include <signal.h>
 
 /*---shell-funcion---*/
-int main();
-char *prompt();
+int main(int argc, char **argv, char **env);
+char *_getline();
 int _check(char *param);
 int exitshell();
 int env();
-char *_getenv(char *str);
-char *findpath(char *str);
+void ignore_cc(int n);
+char *_getenv(char **env);
+
 /*---str-funcion---*/
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
-char *_strstr(char *s1, char *s2);
-int compare(const char *X, const char *Y);
+int aux_getenv(char *s1, char *s2);
+
 #endif

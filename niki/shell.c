@@ -2,25 +2,37 @@
 
 /**
  * main - execute the shell.
- * @ac:argumen count.
- * @av:argument vector.
+ * @argc:argumen count.
+ * @argv:argument vector.
  * @env: environment.
  * Return: always 0.
  */
 
-int main()
+int main(int argc, char **argv, char **env)
 {
+	int status = 1, mod = 0, flag = 1, i = 0;
+	char *imput = NULL, *command[16], *tok = NULL;
 	pid_t child;
-	char *command[5];
-	char *tok, *lineptr = NULL;
-	size_t i;
-	int status, flag = 1;
+	char *path = _getenv(env);
+
+	(void)argc;
+	(void)argv;
+
+	mod = isatty(STDIN_FILENO);
 
 	while (1)
 	{
-		lineptr = prompt();
+		if (mod == 1)
+			printf("$ ");
 
-		tok = strtok(lineptr, " \t\n\r");
+		signal(SIGINT, ignore_cc);
+
+		imput = _getline();
+
+	/*-------------mejorar---------------*/
+	
+		tok = strtok(imput, " \t\n\r");
+
 		for (i = 0; i < 16 && tok != NULL; i++)
 		{
 			command[i] = tok;
@@ -29,21 +41,22 @@ int main()
 
 		command[i] = NULL;
 		flag = _check(command[0]);
+		
 		if (flag == 0)
 		{
-			free(lineptr);
+			free(imput);
 			exitshell();
 		}
+
 		if (flag != 3)
 		{
-			command[0] = findpath(command[0]);
 			child = fork();
 
 			if (child == 0)
 			{
 				if (execve(command[0], command, NULL) == -1)
 				{
-					free(lineptr);
+					free(imput);
 					perror("execve");
 					exit(1);
 				}
@@ -52,10 +65,9 @@ int main()
 			if (child > 0)
 				wait(&status);
 		}
+		if (imput)
+			free(imput);
+
 	}
-	putchar('\n');
-	free(lineptr);
-	free(tok);
-	free(command);
-	exit(status);
- }
+	return (0);
+}

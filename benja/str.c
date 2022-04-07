@@ -98,7 +98,7 @@ char *_strdup(char *str)
 	if (res == NULL)
 		return (NULL);
 
-	for (i = 0; i <= size; i++)
+	for (i = 0; i < size; i++)
 	{
 		res[i] = str[i];
 	}

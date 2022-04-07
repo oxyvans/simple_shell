@@ -32,6 +32,7 @@ int main()
 		
 		if (flag == 0)
 		{
+			free(command);
 			free(imput);
 			free(command);
 			exitshell();

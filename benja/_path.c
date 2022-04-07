@@ -9,6 +9,7 @@
 char *_getenv(char **env)
 {
 	char *_path = "PATH";
+	char * p;
 	int x = 0, y = 0;
 
 	for (x = 0; env[x] != NULL; x++)
@@ -17,8 +18,9 @@ char *_getenv(char **env)
 		for (y = 0; env[x][y] != '='; y++)
 		{
 			if (aux_getenv(_path, env[x]) == 0)
-			{	
-				return (env[x]);
+			{
+				p = _strdup(env[x]);	
+				return (p);
 			}
 			break;
 		}
@@ -40,32 +42,29 @@ char *_tokens_path(char *command)
 
 	path = _getenv(environ);
 
-	tok = strtok(path, "=");
+	tok = strtok(path, ":");
 	
 	if (command[0] == '/')
 	{
-		free(path);
 		return (command);
 	}
 
-	while (tok != NULL)
-	{	
-		if (i > 0)
-		{
+	do
+	{
 			direct[i] = NULL;
 			direct[i] = _strdup(tok);
-			direct[i] = _strcat(direct[i],command);
+			direct[i] = str_concat(direct[i], "/");
+			direct[i] = str_concat(direct[i],command);
 
 			if (stat(direct[i], &status) == 0)
 			{
-				free(path);
 				return (direct[i]);
 			}
 			else
 				i++;
-		}
+
 		tok = strtok(NULL, ":");
-	}
+	} while(tok != NULL);
 	free(path);
 	return(command);
 }

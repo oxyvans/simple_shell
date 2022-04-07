@@ -73,30 +73,6 @@ int _strcmp(char *s1, char *s2)
 	}
 }
 
-
-
-/**
- * _strcat -  concatenates two strings.
- * @dest : pointer
- * @src : pointer
- * Return: dest
- */
-
-char *_strcat(char *dest, char *src)
-{
-	int i, j;
-
-	for (i = 0; dest[i] != '\0'; i++)
-	{
-	}
-	for (j = 0; src[j] != '\0'; j++, i++)
-	{
-		dest[i] = src[j];
-	}
-	dest[i + 1] = '\0';
-	return (dest);
-}
-
 /**
  * _strdup - main
  * @str : chars
@@ -127,5 +103,48 @@ char *_strdup(char *str)
 		res[i] = str[i];
 	}
 	return (res);
+}
 
+/**
+ * str_concat - main
+ * @s2 : size
+ * @s1 : char
+ * Return: chars
+ */
+char *str_concat(char *s1, char *s2)
+{
+	char *res;
+	int i, j, size1 = 0, size2 = 0;
+
+	if (s1 == NULL && s2 == NULL)
+	{
+		res = malloc(1 * sizeof(char));
+		res[0] = '\0';
+		return (res);
+	}
+	if (s1 != NULL)
+	{
+	for (size1 = 0; s1[size1] != '\0'; size1++)
+	{
+	}
+	}
+	if (s2 != NULL)
+	{
+	for (size2 = 0; s2[size2] != '\0'; size2++)
+	{
+	}
+	}
+	res = malloc((size1 + size2 + 1) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
+	for (i = 0; i < size1; i++)
+	{
+		res[i] = s1[i];
+	}
+	for (j = 0; j < size2; i++, j++)
+	{
+		res[i] = s2[j];
+	}
+	res[i] = '\0';
+	return (res);
 }

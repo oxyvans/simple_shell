@@ -13,24 +13,19 @@ int main()
 	int status = 1, mod = 0, flag = 1;
 	char *imput = NULL, **command = NULL;
 	pid_t child;
-	char *path = _getenv(environ);
 	
-	/* mientras no lo uso */
-	printf("%s\n",path);
-
 	mod = isatty(STDIN_FILENO);
-
 	while (1)
 	{
 		if (mod == 1)
 			printf("$ ");
-
+		
 		signal(SIGINT, ignore_cc);
 
 		imput = _getline();
-		
+	
 		command = tokens(imput);
-
+			
 	/*-------------mejorar---------------*/
 	
 		flag = _check(command[0]);
@@ -43,12 +38,14 @@ int main()
 
 		if (flag != 3)
 		{
+			command[0] = _tokens_path(command[0]);
 			child = fork();
 
 			if (child == 0)
 			{
 				if (execve(command[0], command, NULL) == -1)
 				{
+					printf("%s\n",command[0]);
 					free(imput);
 					perror("execve");
 					exit(1);
@@ -57,10 +54,10 @@ int main()
 
 			if (child > 0)
 				wait(&status);
-		}
-		if (imput)
-			free(imput);
 
+		}
+		 if (imput)
+			free(imput);
 	}
 	return (0);
 }

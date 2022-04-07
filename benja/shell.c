@@ -33,6 +33,7 @@ int main()
 		if (flag == 0)
 		{
 			free(imput);
+			free(command);
 			exitshell();
 		}
 
@@ -58,6 +59,8 @@ int main()
 		}
 		 if (imput)
 			free(imput);
+
+		 free(command);
 	}
 	return (0);
 }

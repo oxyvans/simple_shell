@@ -45,7 +45,8 @@ char *_tokens_path(char *command)
 	tok = strtok(path, ":");
 	
 	if (command[0] == '/')
-	{
+	{	
+		free(path);
 		return (command);
 	}
 
@@ -58,13 +59,16 @@ char *_tokens_path(char *command)
 
 			if (stat(direct[i], &status) == 0)
 			{
+				free(path);
 				return (direct[i]);
 			}
 			else
 				i++;
 
 		tok = strtok(NULL, ":");
+
 	} while(tok != NULL);
+
 	free(path);
 	return(command);
 }

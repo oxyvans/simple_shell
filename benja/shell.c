@@ -34,7 +34,6 @@ int main()
 		{
 			free(command);
 			free(imput);
-			free(command);
 			exitshell();
 		}
 
@@ -47,7 +46,6 @@ int main()
 			{
 				if (execve(command[0], command, NULL) == -1)
 				{
-					printf("%s\n",command[0]);
 					free(imput);
 					perror("execve");
 					exit(1);
@@ -60,8 +58,6 @@ int main()
 		}
 		 if (imput)
 			free(imput);
-
-		 free(command);
 	}
 	return (0);
 }

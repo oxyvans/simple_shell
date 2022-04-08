@@ -1,5 +1,4 @@
 #include "main.h"
-extern char **environ;
 
 /* _check - checks for exit or env
  * @param: input from getline

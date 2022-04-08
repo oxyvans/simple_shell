@@ -47,13 +47,14 @@ int main()
 				if (execve(command[0], command, NULL) == -1)
 				{
 					free(imput);
-					perror("Bash");
+					perror("./hsh");
 					exit(1);
 				}
 			}
 
 			if (child > 0)
 				wait(&status);
+			free(command[0]);
 
 		}
 		 if (imput)

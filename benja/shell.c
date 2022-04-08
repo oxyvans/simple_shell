@@ -47,7 +47,7 @@ int main()
 				if (execve(command[0], command, NULL) == -1)
 				{
 					free(imput);
-					perror("execve");
+					perror("shell:");
 					exit(1);
 				}
 			}
@@ -58,6 +58,8 @@ int main()
 		}
 		 if (imput)
 			free(imput);
+		 free(command);
 	}
+	free(command);
 	return (0);
 }

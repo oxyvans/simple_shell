@@ -47,7 +47,7 @@ int main()
 				if (execve(command[0], command, NULL) == -1)
 				{
 					free(imput);
-					perror("shell:");
+					perror("Bash");
 					exit(1);
 				}
 			}

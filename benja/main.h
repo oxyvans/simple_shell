@@ -31,5 +31,6 @@ int _strcmp(char *s1, char *s2);
 int aux_getenv(char *s1, char *s2);
 char *_strdup(char *str);
 char *str_concat(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
 
 #endif

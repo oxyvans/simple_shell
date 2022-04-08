@@ -36,7 +36,7 @@ char *_getenv(char **env)
 
 char *_tokens_path(char *command)
 {
-	char *tok, *direct, *path;
+	char *tok, *direct = NULL, *path, *tmp = NULL;
 	struct stat status;
 	int i = 0;
 
@@ -52,10 +52,12 @@ char *_tokens_path(char *command)
 
 	do
 	{
-			direct = _strdup(tok);
-			direct = str_concat(direct, "/");
-			direct = str_concat(direct,command);
+			direct = tok;
 
+			tmp = str_concat(direct, "/");
+			direct = str_concat(tmp,command);
+			free(tmp);
+			
 			if (stat(direct, &status) == 0)
 			{
 				free(path);
@@ -63,10 +65,8 @@ char *_tokens_path(char *command)
 			}
 			else
 				i++;
-			
-			tok = strtok(NULL, ":");
 			free(direct);
-
+			tok = strtok(NULL, ":");
 	} while(tok != NULL);
 
 	free(path);

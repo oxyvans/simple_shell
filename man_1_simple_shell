@@ -1,0 +1,29 @@
+.\" Manpage for Simple Shell.
+.TH man 8 "12 April 2022" "1.0" "Simple Shell man page"
+.SH NAME
+Simple Shell
+
+.SH SYNOPSIS
+simple_shell [options][file]
+
+.SH DESCRIPTION
+It executes and interprets commands read from the standard input. It works both in interactive mode as well as non-interactive mode.
+
+.SH COMPILATION
+it compiles with the following: 
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+
+Execute the file by typing ./hsh
+
+For non-interactive mode for example: echo "/bin/ls" | ./hsh
+
+.SH SYNTAX
+$ <command>
+Example: $ ls
+
+
+.SH SEE ALSO
+If you do not understand or information is missing, search for simple shell manpage
+
+
+Benjamin Gutierrez and Nicolle Shiskobcki - Holberton School 2022 Uruguay

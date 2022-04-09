@@ -46,7 +46,7 @@ char *_tokens_path(char *command)
 	if (command[0] == '/')
 	{	
 		free(path);
-		return (command);
+		return ("is_path");
 	}
 
 	do
@@ -69,5 +69,5 @@ char *_tokens_path(char *command)
 	} while(tok != NULL);
 
 	free(path);
-	return(command);
+	return("no_command");
 }

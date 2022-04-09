@@ -16,7 +16,15 @@ char *_getline()
 	if (status == -1)
 	{
 		free(buffer);
-		exit(EXIT_FAILURE);
+		if (feof(stdin))
+		{
+			exit(EXIT_SUCCESS);
+		}
+		else
+		{
+			perror("./shell");
+			exit(EXIT_FAILURE);
+		}	
 	}
 	return (buffer);
 }

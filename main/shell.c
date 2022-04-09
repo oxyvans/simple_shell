@@ -2,60 +2,65 @@
 
 /**
  * main - execute the shell.
- * @ac:argumen count.
- * @av:argument vector.
+ * @argc:argumen count.
+ * @argv:argument vector.
  * @env: environment.
  * Return: always 0.
  */
 
 int main()
 {
+	int status = 1, mod = 0, flag = 1;
+	char *imput = NULL, **command = NULL;
 	pid_t child;
-	char *command[5];
-	char *tok, *lineptr = NULL;
-	size_t i;
-	int status, flag = 1;
-
+	
+	mod = isatty(STDIN_FILENO);
 	while (1)
 	{
-		lineptr = prompt();
+		if (mod == 1)
+			printf("$ ");
+		
+		signal(SIGINT, ignore_cc);
 
-		tok = strtok(lineptr, " \t\n\r");
-		for (i = 0; i < 16 && tok != NULL; i++)
-		{
-			command[i] = tok;
-			tok = strtok(NULL, " \t\n\r");
-		}
-
-		command[i] = NULL;
+		imput = _getline();
+	
+		command = tokens(imput);
+			
+	/*-------------mejorar---------------*/
+	
 		flag = _check(command[0]);
+		
 		if (flag == 0)
 		{
-			free(lineptr);
+			free(command);
+			free(imput);
 			exitshell();
 		}
+
 		if (flag != 3)
 		{
-			command[0] = findpath(command[0]);
+			command[0] = _tokens_path(command[0]);
 			child = fork();
 
 			if (child == 0)
 			{
 				if (execve(command[0], command, NULL) == -1)
 				{
-					free(lineptr);
-					perror("execve");
+					free(imput);
+					perror("./hsh");
 					exit(1);
 				}
 			}
 
 			if (child > 0)
 				wait(&status);
+			free(command[0]);
+
 		}
+		 if (imput)
+			free(imput);
+		 free(command);
 	}
-	putchar('\n');
-	free(lineptr);
-	free(tok);
 	free(command);
-	exit(status);
- }
+	return (0);
+}

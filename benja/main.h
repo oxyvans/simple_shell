@@ -24,6 +24,8 @@ char *_getenv(char **env);
 char **tokens(char *imput);
 char *_tokens_path(char *command);
 int _exe(char **command);
+int help();
+int _cd(char **command);
 
 /*---str-funcion---*/
 int _strlen(char *s);

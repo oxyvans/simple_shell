@@ -17,14 +17,14 @@ extern char **environ;
 /*---shell-funcion---*/
 int main();
 char *_getline();
-int _check(char *param);
-int exitshell();
+int _check(char **command);
 int env();
 void ignore_cc(int n);
 char *_getenv(char **env);
 char **tokens(char *imput);
 char *_tokens_path(char *command);
-
+int _exe(char **command);
+int help();
 /*---str-funcion---*/
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);

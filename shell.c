@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[], char **env)
 {
-	int mod = 0, flag = 1;
+	int mod = 0, flag = 0;
 	char *imput = NULL, **command = NULL;
 
 	(void)argc;

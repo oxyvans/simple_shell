@@ -3,6 +3,7 @@
 /**
  * _check - checks
  * @command: input from getline
+ * @argv: arguments
  * Return: status
  */
 
@@ -60,15 +61,16 @@ int env(void)
 
 /**
 * help - prints help
+* @command: command
 * Return: status
 */
 
-int help(char* command)
+int help(char *command)
 {
 	if (command == NULL)
 	{
 		printf("Help works for\nexit\npwd\ncd\n");
-		return(1);
+		return (1);
 	}
 	if (_strcmp(command, "exit") == 0)
 	{

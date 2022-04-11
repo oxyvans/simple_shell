@@ -2,7 +2,8 @@
 
 /**
  * _exe - execute.
- * @command:argumen count.
+ * @command: input
+ * @argv: arguments.
  * Return: status.
  */
 

@@ -52,14 +52,13 @@ char *_tokens_path(char *command)
 	if (aux_getenv("./", command) == 0)
 	{
 		free(path);
-		return(command);
+		return (command);
 	}
 
 	do {
 		tmp = tok;
-	
+
 		tmp = str_concat(tmp, "/");
-		
 		direct = str_concat(tmp, command);
 		free(tmp);
 

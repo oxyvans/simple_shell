@@ -16,7 +16,7 @@ int _exe(char **command)
 	exec = _tokens_path(command[0]);
 
 	if (_strcmp(exec, "no_command") == 0)
-		printf("./hsh: 1: %s: command not found\n", command[0]);
+		printf("./hsh: 1: %s: not found\n", command[0]);
 
 	if (_strcmp(exec, "is_path") != 0)
 		command[0] = exec;

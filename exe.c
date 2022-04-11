@@ -43,5 +43,5 @@ int _exe(char **command, char **argv)
 			free(command[0]);
 	}
 
-	return ((WEXITSTATUS(status)));
+	return (1);
 }

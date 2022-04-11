@@ -36,5 +36,5 @@ int main(int argc, char *argv[], char **env)
 		free(command);
 	}
 
-	return (1);
+	return (flag);
 }

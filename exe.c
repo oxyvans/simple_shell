@@ -44,5 +44,5 @@ int _exe(char **command, char **argv)
 			free(command[0]);
 	}
 
-	return (status);
+	return (1);
 }

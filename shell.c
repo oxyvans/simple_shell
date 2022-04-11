@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[], char **env)
 {
-	int mod = 0, flag = 0;
+	int mod = 0, flag = 1;
 	char *imput = NULL, **command = NULL;
 
 	(void)argc;
@@ -35,8 +35,9 @@ int main(int argc, char *argv[], char **env)
 
 		free(command);
 
-		if (mod == 0)
+		if (mod != 1)
 			return (flag);
+
 	}
 
 	return (flag);

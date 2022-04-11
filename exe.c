@@ -9,7 +9,7 @@
 int _exe(char **command, char **argv)
 {
 	struct stat s;
-	int status = 1;
+	int status;
 	pid_t child;
 	char *exec;
 
@@ -30,8 +30,7 @@ int _exe(char **command, char **argv)
 
 		if (child == 0)
 		{
-			status = execve(command[0], command, environ);
-			if (status == -1)
+			if (execve(command[0], command, environ) == -1)
 			{
 				perror("./hsh");
 			}
@@ -44,5 +43,5 @@ int _exe(char **command, char **argv)
 			free(command[0]);
 	}
 
-	return (WEXITSTATUS(status));
+	return ((WEXITSTATUS(status)));
 }

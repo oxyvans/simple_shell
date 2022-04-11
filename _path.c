@@ -49,9 +49,10 @@ char *_tokens_path(char *command)
 		return ("is_path");
 	}
 
+	if (aux_getenv("./", command) == 0)
+		return("is_ex");
+
 	do {
-		if (_strcmp(command, "./") == 0)
-			return("is_dir");
 		tmp = tok;
 	
 		tmp = str_concat(tmp, "/");

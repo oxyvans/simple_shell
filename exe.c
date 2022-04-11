@@ -18,7 +18,7 @@ int _exe(char **command, char **argv)
 	if (_strcmp(exec, "no_command") == 0)
 		printf("%s: 1: %s: not found\n", argv[0], command[0]);
 	
-	if (_strcmp(exec, "is_dir") == 0)
+	if (_strcmp(exec, "is_ex") == 0)
 		printf("%s: %s: Is a directory\n", argv[0], command[0]);
 
 	if (_strcmp(exec, "is_path") != 0)

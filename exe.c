@@ -34,6 +34,7 @@ int _exe(char **command, char **argv)
 			if (status == -1)
 			{
 				perror("./hsh");
+				exit(EXIT_FAILURE);
 			}
 		}
 
@@ -44,5 +45,5 @@ int _exe(char **command, char **argv)
 			free(command[0]);
 	}
 
-	return (1);
+	return (status);
 }

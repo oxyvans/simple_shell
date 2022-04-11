@@ -17,13 +17,13 @@ extern char **environ;
 /*---shell-funcion---*/
 int main(int argc, char *argv[], char **env);
 char *_getline(void);
-int _check(char **command);
+int _check(char **command, char **argv);
 int env(void);
 void ignore_cc(int n);
 char *_getenv(char **env);
 char **tokens(char *imput);
 char *_tokens_path(char *command);
-int _exe(char **command);
+int _exe(char **command, char **argv);
 int help(void);
 int _cd(char **command);
 

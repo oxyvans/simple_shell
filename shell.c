@@ -14,7 +14,6 @@ int main(int argc, char *argv[], char **env)
 	char *imput = NULL, **command = NULL;
 
 	(void)argc;
-	(void)argv;
 	(void)env;
 
 	mod = isatty(STDIN_FILENO);
@@ -29,7 +28,7 @@ int main(int argc, char *argv[], char **env)
 
 		command = tokens(imput);
 
-		flag = _check(command);
+		flag = _check(command, argv);
 
 		if (imput)
 			free(imput);
@@ -37,5 +36,5 @@ int main(int argc, char *argv[], char **env)
 		free(command);
 	}
 
-	return (1);
+	return (flag);
 }

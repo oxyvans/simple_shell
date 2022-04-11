@@ -6,7 +6,7 @@
  * Return: status.
  */
 
-int _exe(char **command)
+int _exe(char **command, char **argv)
 {
 	struct stat s;
 	int status = 1;
@@ -16,13 +16,13 @@ int _exe(char **command)
 	exec = _tokens_path(command[0]);
 
 	if (_strcmp(exec, "no_command") == 0)
-		printf("./hsh: 1: %s: not found\n", command[0]);
+		printf("%s: 1: %s: not found\n", argv[0], command[0]);
 
 	if (_strcmp(exec, "is_path") != 0)
 		command[0] = exec;
 	
 	if (_strcmp(exec, "is_dir") == 0)
-		printf("./hsh: %s: Is a directory\n", command[0]);
+		printf("%s: %s: Is a directory\n", argv[0], command[0]);
 
 	if (stat(command[0], &s) == 0)
 	{

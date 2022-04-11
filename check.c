@@ -65,10 +65,7 @@ int env(void)
 
 int help(void)
 {
-	printf("Simple Shell by Benjamín Gutierrez and Nicolle Shiskobcki
-		\nTo exit type \"exit\"\nTo get environment type \"env\"
-		\nFor more help search shell man on the internet
-		\nHolberton School 2022\n ");
+	printf("Simple Shell by Benjamín Gutierrez and Nicolle Shiskobcki\nTo exit type \"exit\"\nTo get environment type \"env\"\nFor more help search shell man on the internet\nHolberton School 2022\n ");
 
 	return (1);
 }

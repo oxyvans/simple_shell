@@ -34,6 +34,7 @@ int _exe(char **command, char **argv)
 			if (status == -1)
 			{
 				perror("./hsh");
+				return (2);
 			}
 		}
 

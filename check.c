@@ -6,7 +6,7 @@
  * Return: status
  */
 
-int _check(char **command)
+int _check(char **command, char **argv)
 {
 	if (command[0] == NULL)
 		return (1);
@@ -23,7 +23,7 @@ int _check(char **command)
 	if (_strcmp(command[0], "cd") == 0)
 		return (_cd(command));
 
-	return (_exe(command));
+	return (_exe(command, argv));
 }
 
 /**

@@ -17,7 +17,7 @@ int main(int argc, char *argv[], char **env)
 	(void)env;
 
 	mod = isatty(STDIN_FILENO);
-	while (1)
+	while (flag != 1)
 	{
 		if (mod == 1)
 			printf("$ ");
@@ -34,9 +34,6 @@ int main(int argc, char *argv[], char **env)
 			free(imput);
 
 		free(command);
-
-		if (flag == 1)
-			return (0);
 
 		if (mod == 0)
 			return (flag);

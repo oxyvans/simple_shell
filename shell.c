@@ -29,7 +29,7 @@ int main(int argc, char *argv[], char **env)
 		command = tokens(imput);
 
 		flag = _check(command, argv);
-		
+
 		if (imput)
 			free(imput);
 

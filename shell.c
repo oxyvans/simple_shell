@@ -34,6 +34,9 @@ int main(int argc, char *argv[], char **env)
 			free(imput);
 
 		free(command);
+
+		if (flag == 10)
+			return (0);
 	}
 
 	return (flag);

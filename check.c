@@ -13,7 +13,7 @@ int _check(char **command, char **argv)
 		return (1);
 
 	if (_strcmp(command[0], "exit") == 0)
-		return (0);
+		return (10);
 
 	if (_strcmp(command[0], "env") == 0)
 		return (env());

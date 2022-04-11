@@ -30,7 +30,7 @@ int _exe(char **command)
 
 		if (child == 0)
 		{
-			status = execve(command[0], command, NULL);
+			status = execve(command[0], command, environ);
 			if (status == -1)
 			{
 				perror("./hsh");

@@ -36,8 +36,9 @@ int _exe(char **command, char **argv)
 		if (child > 0)
 			wait(&status);
 
-		if (_strcmp(exec, "is_path") != 0)
-			free(command[0]);
+		if (aux_getenv("./", command[0]) != 0)
+			if (_strcmp(exec, "is_path") != 0)
+				free(command[0]);
 	}
 
 	return (1);

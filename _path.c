@@ -50,7 +50,10 @@ char *_tokens_path(char *command)
 	}
 
 	if (aux_getenv("./", command) == 0)
-		return("is_ex");
+	{
+		free(path);
+		return(command);
+	}
 
 	do {
 		tmp = tok;

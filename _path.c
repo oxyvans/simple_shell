@@ -50,10 +50,12 @@ char *_tokens_path(char *command)
 	}
 
 	do {
+		if (_strcmp(command, "./") == 0)
+			return("is_dir");
 		tmp = tok;
-
+	
 		tmp = str_concat(tmp, "/");
-
+		
 		direct = str_concat(tmp, command);
 		free(tmp);
 

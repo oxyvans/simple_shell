@@ -20,6 +20,9 @@ int _exe(char **command)
 
 	if (_strcmp(exec, "is_path") != 0)
 		command[0] = exec;
+	
+	if (_strcmp(exec, "is_dir") == 0)
+		printf("./hsh: %s: Is a directory\n", command[0]);
 
 	if (stat(command[0], &s) == 0)
 	{

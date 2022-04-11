@@ -18,7 +18,7 @@ int _check(char **command, char **argv)
 		return (env());
 
 	if (_strcmp(command[0], "help") == 0)
-		return (help());
+		return (help(command[1]));
 
 	if (_strcmp(command[0], "cd") == 0)
 		return (_cd(command));
@@ -63,9 +63,29 @@ int env(void)
 * Return: status
 */
 
-int help(void)
+int help(char* command)
 {
-	printf("Simple Shell by Benjamín Gutierrez and Nicolle Shiskobcki\nTo exit type \"exit\"\nTo get environment type \"env\"\nFor more help search shell man on the internet\nHolberton School 2022\n ");
+	if (command == NULL)
+	{
+		printf("Help works for\nexit\npwd\ncd\n");
+		return(1);
+	}
+	if (_strcmp(command, "exit") == 0)
+	{
+		printf("Help Exit\nType \"exit\" to exit the terminal\n");
+		return (1);
+	}
+	if (_strcmp(command, "pwd") == 0)
+	{
+		printf("Help PWD\nType \"pwd\" to see previous working directory\n");
+		return (1);
+	}
+	if (_strcmp(command, "cd") == 0)
+	{
+		printf("Help cd\nType \"cd\" to change directory\n");
+		return (1);
+	}
+
 
 	return (1);
 }

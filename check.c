@@ -10,10 +10,10 @@
 int _check(char **command, char **argv)
 {
 	if (command[0] == NULL)
-		return (1);
+		return (0);
 
 	if (_strcmp(command[0], "exit") == 0)
-		return (0);
+		return (1);
 
 	if (_strcmp(command[0], "env") == 0)
 		return (env());
@@ -41,7 +41,7 @@ int _cd(char **command)
 
 	chdir(command[1]);
 
-	return (1);
+	return (0);
 }
 
 /**
@@ -56,7 +56,7 @@ int env(void)
 	for (i = 0; environ[i] != NULL; i++)
 		printf("%s\n", environ[i]);
 
-	return (1);
+	return (0);
 }
 
 /**
@@ -70,24 +70,24 @@ int help(char *command)
 	if (command == NULL)
 	{
 		printf("Help works for\nexit\npwd\ncd\n");
-		return (1);
+		return (0);
 	}
 	if (_strcmp(command, "exit") == 0)
 	{
 		printf("Help Exit\nType \"exit\" to exit the terminal\n");
-		return (1);
+		return (0);
 	}
 	if (_strcmp(command, "pwd") == 0)
 	{
 		printf("Help PWD\nType \"pwd\" to see previous working directory\n");
-		return (1);
+		return (0);
 	}
 	if (_strcmp(command, "cd") == 0)
 	{
 		printf("Help cd\nType \"cd\" to change directory\n");
-		return (1);
+		return (0);
 	}
 
 
-	return (1);
+	return (0);
 }

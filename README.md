@@ -25,18 +25,18 @@ The code compile with `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh` command.
 ## Examples
 
 ## interactive mode
-
-root@holberton:/home/simpleshell# ./hsh
+```
+root@holberton:/home/simpleshell ./hsh
 $ ls\n
 README.md  shell.c  _signal.c  str2.c  str.c  _tokens.c
 $ 
-
+```
 ## non-interactive mode
-
-root@holberton:/home/simpleshell# echo "ls" | ./hsh
+```
+root@holberton:/home/simpleshell echo "ls" | ./hsh
 README.md  shell.c  _signal.c  str2.c  str.c  _tokens.c
 root@holberton:/home/simpleshell#
-
+```
 ## Authors
 
 Benjamín Gutiérrez and Nicolle Shiskobcki.

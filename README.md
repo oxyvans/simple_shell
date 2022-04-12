@@ -24,14 +24,14 @@ The code compile with `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh` command.
 
 ## Examples
 
-#interactive mode
+## interactive mode
 
 root@holberton:/home/simpleshell# ./hsh
-$ ls
+$ ls\n
 README.md  shell.c  _signal.c  str2.c  str.c  _tokens.c
 $ 
 
-#non-interactive mode
+## non-interactive mode
 
 root@holberton:/home/simpleshell# echo "ls" | ./hsh
 README.md  shell.c  _signal.c  str2.c  str.c  _tokens.c
